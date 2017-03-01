@@ -12,10 +12,6 @@
          </Policies>
          <DefaultRolloverStrategy max="10"/>
       </RollingFile>
-      <Async name="ASYNC">
-         <AppenderRef ref="ROLLING"/>
-         <AppenderRef ref="CONSOLE"/>
-      </Async>
    </Appenders>
    <Loggers>
       <Logger name="com" level="info"/>
@@ -23,7 +19,8 @@
       <Logger name="io.searchbox" level="warn"/>
       <Logger name="org.perfcake" level="info"/>
       <Root level="info">
-         <AppenderRef ref="ASYNC"/>
+         <AppenderRef ref="ROLLING"/>
+         <AppenderRef ref="CONSOLE"/>
       </Root>
    </Loggers>
 </Configuration>
