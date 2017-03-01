@@ -28,6 +28,7 @@
 	<messages>
 		<message uri="createWorkspace.json">
 			<header name="Authorization" value="anytoken" />
+			<header name="Content-Type" value="application/json"/>
 		</message>
 	</messages>
 </scenario>
