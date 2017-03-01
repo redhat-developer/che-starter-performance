@@ -1,0 +1,45 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>io.fabric8.che</groupId>
+	<artifactId>che-starter-performance</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
+
+	<properties>
+		<perfcake.version>7.4</perfcake.version>
+		<perfcake.scenario>create-workspace-scenario</perfcake.scenario>
+		<vertx.server>http://localhost:33333</vertx.server>
+		<che.starter.host>localhost:10000</che.starter.host>
+	</properties>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.perfcake</groupId>
+				<artifactId>perfcake-maven-plugin</artifactId>
+				<version>${perfcake.version}</version>
+				<configuration>
+					<scenario>${perfcake.scenario}</scenario>
+					<scenarios-dir>resources/scenarios</scenarios-dir>
+					<messages-dir>resources/messages</messages-dir>
+				</configuration>
+				<executions>
+					<execution>
+						<id>perfcake-scenario-run</id>
+						<goals>
+							<goal>scenario-run</goal>
+						</goals>
+					</execution>
+				</executions>
+				<dependencies>
+					<dependency>
+						<groupId>org.perfcake</groupId>
+						<artifactId>perfcake</artifactId>
+						<version>${perfcake.version}</version>
+					</dependency>
+				</dependencies>
+			</plugin>
+		</plugins>
+	</build>
+</project>

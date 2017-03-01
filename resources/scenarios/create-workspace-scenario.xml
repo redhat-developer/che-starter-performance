@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<scenario xmlns="urn:perfcake:scenario:7.0">
+	<run type="${perfcake.run.type:iteration}" value="${perfcake.run.duration:5000}" />
+	<generator class="DefaultMessageGenerator" threads="${perfcake.thread.count:100}">
+		<property name="senderTaskQueueSize" value="5000" />
+	</generator>
+	<sender class="HttpSender">
+		<target>http://${che.starter.host}/workspace?masterUrl=${vertx.server}</target>
+		<property name="method" value="POST" />
+	</sender>
+	<reporting>
+		<reporter class="ResponseTimeStatsReporter">
+			<property name="minimumEnabled" value="false" />
+			<property name="maximumEnabled" value="false" />
+			<destination class="ChartDestination">
+				<period type="time" value="1000" />
+				<property name="name" value="Response Time" />
+				<property name="group" value="rt" />
+				<property name="yAxis" value="Response Time [ms]" />
+				<property name="attributes" value="Result,Average" />
+				<property name="outputDir" value="target/charts" />
+			</destination>
+			<destination class="ConsoleDestination">
+				<period type="time" value="1000" />
+			</destination>
+		</reporter>
+	</reporting>
+	<messages>
+		<message uri="createWorkspace.json">
+			<header name="Authorization" value="anytoken" />
+		</message>
+	</messages>
+</scenario>
