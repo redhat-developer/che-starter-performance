@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <scenario xmlns="urn:perfcake:scenario:7.0">
-	<run type="iteration" value="3000" />
-	<generator class="ConstantSpeedMessageGenerator" threads="15">
-		<property name="speed" value="150" />
+	<run type="iteration" value="5000" />
+	<generator class="ConstantSpeedMessageGenerator" threads="50">
+		<property name="speed" value="500" />
 	</generator>
 	<sender class="HttpSender">
 		<target>http://${che.starter.host}/workspace?masterUrl=${vertx.server}</target>
