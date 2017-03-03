@@ -8,9 +8,6 @@
 
 	<properties>
 		<perfcake.version>7.4</perfcake.version>
-		<perfcake.scenario>create-workspace-scenario</perfcake.scenario>
-		<vertx.server>http://localhost:33333</vertx.server>
-		<che.starter.host>localhost:10000</che.starter.host>
 	</properties>
 
 	<dependencies>
