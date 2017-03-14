@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <scenario xmlns="urn:perfcake:scenario:7.0">
-	<run type="iteration" value="3000" />
+	<run type="iteration" value="1500" />
 	<generator class="ConstantSpeedMessageGenerator" threads="15">
 		<property name="speed" value="150" />
 	</generator>
 	<sender class="HttpSender">
-		<target>http://${che.starter.host}/workspace?masterUrl=${vertx.server}</target>
+		<target>http://${che.starter.host}/workspace?masterUrl=${vertx.server}&amp;namespace=che</target>
 		<property name="method" value="POST" />
 	</sender>
 	<reporting>

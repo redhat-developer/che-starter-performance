@@ -5,8 +5,8 @@
 		<property name="speed" value="500" />
 	</generator>
 	<sender class="HttpSender">
-		<target>http://${che.starter.host}/workspace?masterUrl=${vertx.server}</target>
-		<property name="method" value="POST" />
+		<target>http://${che.starter.host}/workspace?masterUrl=${vertx.server}&amp;namespace=che</target>
+		<property name="method" value="GET" />
 	</sender>
 	<reporting>
 		<reporter class="ResponseTimeStatsReporter">
