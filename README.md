@@ -11,9 +11,10 @@ Che starter performance tests performance of che-starter server by calling its A
 
 ## PerfCake scenarios
 All scenarios try to create a workspace on OpenShift. Different is only in rate of messages and count of messages.
-- `create-workspace-scenario` - message rate 150/s, message count 3000, estimated duration 20 seconds
-- `soak` - message rate 50/s, message count 30000, estimated duration 10 minutes
-- `storm` - message rate 500/s, message count 5000, estimated duration 10 seconds
+- `basic` - message rate 150/s, message count 3000
+- `soak` - message rate 50/s, message count 30000
+- `storm` - message rate 500/s, message count 5000
+- `dummy` - message rate 500/s, message count 5000; does not call che-starter but does calls directly to Che vertx server, for testing max possible throughput on the Che vertx server, the rate reached on this scenario should not be overpassed by others scenarios where che starter is involved
 
 ## Performance results
 Results are located in target folder and its subfolders. There is output from console in perfcake-maven-plugin.log as well as charts for performance.
